@@ -186,6 +186,7 @@ func (this *std) dealPanic(depth int, v ...interface{}) {
 //	this.buf.WriteString(strconv.Itoa(line))
 //	this.buf.WriteString(" ")
 //		this.buf.WriteString(v)
+
 //	if this.color == 1 && this.dev == 0 {
 //		this.buf.WriteString("\x1b[0m")
 //	}

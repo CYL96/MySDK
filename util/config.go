@@ -21,6 +21,7 @@ func ReadFile(path string) string {
 	fd, err := ioutil.ReadAll(fi)
 	fd = bytes.TrimPrefix(fd, []byte("\xef\xbb\xbf"))
 	return string(fd)
+
 }
 func GetCurrentDirectory() string {
 	if runtime.GOOS == "windows" {

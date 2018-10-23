@@ -15,6 +15,7 @@ func InterfaceToString(data []map[string]interface{}) {
 			case *big.Int:
 				data[i][i1] = data[i][i1].(*big.Int).String()
 			case int64:
+
 				data[i][i1] = strconv.FormatInt(data[i][i1].(int64), 10)
 			case float32:
 				data[i][i1] = strconv.FormatFloat(float64(data[i][i1].(float32)), 'f', 6, 64)

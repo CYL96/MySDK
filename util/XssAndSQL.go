@@ -13,6 +13,7 @@ var sqlEscaper = strings.NewReplacer(
 	`"`, "&#34;",
 )
 
+
 var sqlUnescaper = strings.NewReplacer(
 	"&amp;", `&`,
 	"&#39;", `'`,

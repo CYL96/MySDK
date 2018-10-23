@@ -12,6 +12,7 @@ func Mypprofstart() {
 	if err != nil {
 		panic(err)
 	}
+
 	pprof.StartCPUProfile(f)
 }
 func MypprofStop() {

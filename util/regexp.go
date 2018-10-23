@@ -18,6 +18,7 @@ func IsID(str ...string) bool {
 	return b
 }
 
+
 //数字+字母+符号 6~30位
 func IsPwd(str ...string) bool {
 	var b bool

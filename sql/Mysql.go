@@ -119,6 +119,7 @@ func InitSql(name string, password string, ip string, port string, sqlName strin
 	//go timer(s)
 
 	return s
+
 }
 func InitSql1(driver, path string) *XSql {
 	db, err := sql.Open(driver, path)
