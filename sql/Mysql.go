@@ -115,9 +115,7 @@ func InitSql(name string, password string, ip string, port string, sqlName strin
 	s.sqlName = sqlName
 	s.time_last = time.Now().Unix()
 	//s.ch = make(chan uint8,100)
-
 	//go timer(s)
-
 	return s
 
 }

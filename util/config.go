@@ -2,7 +2,7 @@ package util
 
 import (
 	"bytes"
-	"fmt"
+	"github.com/CYL96/MySDK/log"
 	"io/ioutil"
 	"os"
 	"os/exec"
@@ -12,10 +12,10 @@ import (
 )
 
 func ReadFile(path string) string {
-	fmt.Println("path:", path)
+	log.Println("path:", path)
 	fi, err := os.Open(path)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
 	defer fi.Close()
 	fd, err := ioutil.ReadAll(fi)
@@ -27,7 +27,7 @@ func GetCurrentDirectory() string {
 	if runtime.GOOS == "windows" {
 		dir, err := filepath.Abs(filepath.Dir(os.Args[0])) //返回绝对路径  filepath.Dir(os.Args[0])去除最后一个元素的路径
 		if err != nil {
-			fmt.Println(err)
+			log.Println(err)
 			return ""
 		}
 		//return strings.Replace(dir, "\\", "/", -1) //将\替换成/

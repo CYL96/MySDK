@@ -44,14 +44,18 @@ type std struct {
 	mode  int // 0 打印 1 打印+文件 2 文件 ,3 打印+文件+ 终端=>文件
 }
 
-var mylog std = std{
-	lk:    new(sync.RWMutex),
-	mode:  0,
-	color: 0,
-	loglv: 0,
-	tm:    time.Now(),
-	buf:   new(bytes.Buffer),
-	out:   os.Stdout,
+var mylog std
+
+func init() {
+	mylog = std{
+		lk:    new(sync.RWMutex),
+		mode:  0,
+		color: 0,
+		loglv: 0,
+		tm:    time.Now(),
+		buf:   new(bytes.Buffer),
+		out:   os.Stdout,
+	}
 }
 
 func LogInit(mode, loglv, dev, color int) {
