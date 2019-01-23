@@ -79,7 +79,7 @@ func (this *std) print(lv, depth int, file string, v string) {
 	if this.color == Color_On && this.dev == Unix {
 		this.buf.WriteString(fmt.Sprintf("\x1b[0;%dm ", colors[lv]))
 	}
-	tm := time.Now().Format("2006-01-02 15:03:04")
+	tm := time.Now().Format("2006-01-02 15:04:05")
 	this.buf.WriteString(tm)
 	this.buf.WriteString(" ")
 	this.buf.WriteString(level[lv])
@@ -112,7 +112,7 @@ func (this *std) print(lv, depth int, file string, v string) {
 		} else {
 			this.fd_run.Write(this.buf.Bytes())
 		}
-
+		this.fd_run.Sync()
 	}
 	this.buf.Reset()
 	depth--
@@ -175,6 +175,7 @@ func (this *std) print_log(lv, depth int, file string, v string) {
 		} else {
 			this.fd_log.Write(this.buf.Bytes())
 		}
+		this.fd_log.Sync()
 	}
 	this.buf.Reset()
 	depth--

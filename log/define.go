@@ -84,6 +84,18 @@ func LogInit(mode, loglv, dev, color int) {
 	if mode > 0 {
 		mylog.createlogfile()
 	}
+	Println("----------------------Log-Start----------------------")
+}
+func LogClose() {
+	mylog.lk.RLock()
+	defer mylog.lk.RUnlock()
+	if mylog.fd_log != nil {
+		mylog.fd_log.Close()
+	}
+	if mylog.fd_run != nil {
+		mylog.fd_run.Close()
+	}
+	mylog.out.Close()
 }
 
 func setWindowsColorInfo() {
